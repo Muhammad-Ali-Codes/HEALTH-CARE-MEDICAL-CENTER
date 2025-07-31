@@ -1,0 +1,809 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Health Care Medical Center - Quality Healthcare</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <style>
+        /* Mobile-First CSS */
+        :root {
+            --primary-color: #0d6efd;
+            --secondary-color: #6c757d;
+            --accent-color: #198754;
+            --light-color: #f8f9fa;
+            --dark-color: #212529;
+        }
+
+
+
+
+/* Add this at the top of your CSS */
+html {
+    overflow-x: hidden;
+}
+
+/* Make sure this is in your HTML head */
+/* <meta name="viewport" content="width=device-width, initial-scale=1.0"> */
+
+/* Improved mobile styles */
+@media (max-width: 767px) {
+    body {
+        font-size: 14px; /* Slightly smaller base font for mobile */
+        line-height: 1.5;
+    }
+    
+    .hero {
+        padding: 100px 0 40px; /* Reduced padding for mobile */
+        min-height: auto; /* Remove fixed height */
+    }
+    
+    .hero-content h1 {
+        font-size: 1.8rem; /* Smaller heading for mobile */
+        margin-bottom: 10px;
+    }
+    
+    .hero-content h2 {
+        font-size: 1.2rem;
+    }
+    
+    .feature-box, .service-card {
+        padding: 15px; /* Reduced padding for mobile */
+    }
+    
+    nav.active {
+        position: absolute;
+        width: 100%;
+        left: 0;
+        top: 60px; /* Adjust based on header height */
+        box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+    }
+    
+    nav ul li {
+        padding: 8px 15px; /* Better touch targets */
+    }
+    
+    /* Prevent horizontal overflow */
+    .container {
+        padding: 0 10px; /* Smaller padding on mobile */
+    }
+    
+    /* Ensure images don't overflow */
+    img {
+        max-width: 100%;
+        height: auto;
+    }
+}
+
+/* Existing media queries - keep these but add the following adjustments */
+@media (min-width: 768px) {
+    .hero {
+        min-height: 100vh; /* Only full height on desktop */
+    }
+    
+    /* Ensure desktop navigation doesn't cause overflow */
+    nav ul {
+        flex-wrap: wrap;
+    }
+}
+
+/* Add this to prevent horizontal scrolling */
+body, html {
+    max-width: 100%;
+    overflow-x: hidden;
+}
+    
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            font-size: 16px;
+            line-height: 1.6;
+            color: #333;
+            overflow-x: hidden;
+        }
+        
+        .container {
+            width: 100%;
+            padding: 0 15px;
+            margin: 0 auto;
+        }
+        
+        /* Header Styles */
+        header {
+            background-color: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+        
+        .logo h1 {
+            font-size: 1.4rem;
+            color: var(--primary-color);
+            margin: 10px 0;
+        }
+        
+        .logo h1 span {
+            color: var(--accent-color);
+            display: block;
+            font-size: 1.1rem;
+        }
+        
+        .opening-hours {
+            font-size: 0.8rem;
+            color: var(--secondary-color);
+            margin-bottom: 5px;
+        }
+        
+        nav {
+            display: none;
+        }
+        
+        nav.active {
+            display: block;
+            background: white;
+            padding: 10px 0;
+        }
+        
+        nav ul {
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-bottom: 5px;
+        }
+        
+        nav ul li a {
+            text-decoration: none;
+            color: var(--dark-color);
+            font-weight: 500;
+            padding: 5px 0;
+            display: block;
+        }
+        
+        nav ul li a.active {
+            color: var(--primary-color);
+            font-weight: bold;
+        }
+        
+        .mobile-menu {
+            position: absolute;
+            right: 15px;
+            top: 15px;
+            font-size: 1.5rem;
+            color: var(--primary-color);
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(13, 110, 253, 0.8), rgba(25, 135, 84, 0.8)), url('images/medical-bg.jpg');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 120px 0 60px;
+            text-align: center;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+        }
+        
+        .hero-content h2 {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+        }
+        
+        .hero-content h1 {
+            font-size: 2rem;
+            margin-bottom: 15px;
+        }
+        
+        .hero-content p {
+            margin-bottom: 20px;
+            font-size: 1rem;
+        }
+        
+        .doctor-info {
+            background: rgba(255,255,255,0.2);
+            padding: 10px;
+            border-radius: 5px;
+            margin: 20px 0;
+            font-size: 0.9rem;
+        }
+        
+        .doctor-info i {
+            margin-right: 5px;
+        }
+        
+        .btn {
+            display: inline-block;
+            background-color: white;
+            color: var(--primary-color);
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            margin-top: 10px;
+            transition: all 0.3s;
+        }
+        
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        /* Features Section */
+        .features {
+            padding: 50px 0;
+            background-color: var(--light-color);
+        }
+        
+        .feature-box {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+        
+        .feature-icon {
+            width: 60px;
+            height: 60px;
+            margin-bottom: 15px;
+        }
+        
+        .feature-box h3 {
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+            color: var(--primary-color);
+        }
+        
+        /* About Section */
+        .about-preview {
+            padding: 50px 0;
+        }
+        
+        .about-image img {
+            width: 100%;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+        
+        .about-content h2 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: var(--primary-color);
+        }
+        
+        .about-content ul {
+            margin: 20px 0;
+            list-style: none;
+        }
+        
+        .about-content ul li {
+            margin-bottom: 10px;
+            font-size: 0.9rem;
+        }
+        
+        .about-content ul li i {
+            color: var(--accent-color);
+            margin-right: 5px;
+        }
+        
+        /* Services Section */
+        .services-preview {
+            padding: 50px 0;
+            background-color: var(--light-color);
+        }
+        
+        .section-header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        
+        .section-header h2 {
+            font-size: 1.5rem;
+            color: var(--primary-color);
+            margin-bottom: 10px;
+        }
+        
+        .services-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 15px;
+        }
+        
+        .service-card {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: all 0.3s;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+        
+        .service-card i {
+            font-size: 2rem;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+        }
+        
+        .service-card h3 {
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+        }
+        
+        .service-card a {
+            color: var(--accent-color);
+            text-decoration: none;
+            font-size: 0.9rem;
+            display: inline-block;
+            margin-top: 10px;
+        }
+        
+        .text-center {
+            text-align: center;
+            margin-top: 20px;
+        }
+        
+        /* Testimonials */
+        .testimonials {
+            padding: 50px 0;
+            background-color: white;
+        }
+        
+        .testimonials h2 {
+            text-align: center;
+            font-size: 1.5rem;
+            margin-bottom: 30px;
+            color: var(--primary-color);
+        }
+        
+        .testimonial {
+            background: var(--light-color);
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+        
+        .testimonial p {
+            font-style: italic;
+            margin-bottom: 15px;
+        }
+        
+        .patient-info h4 {
+            font-size: 1rem;
+            margin-bottom: 5px;
+        }
+        
+        .rating {
+            color: gold;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--dark-color);
+            color: white;
+            padding: 40px 0 0;
+        }
+        
+        .footer-col {
+            margin-bottom: 30px;
+        }
+        
+        .footer-col h3 {
+            font-size: 1.2rem;
+            margin-bottom: 15px;
+            color: white;
+        }
+        
+        .footer-col p, .footer-col ul {
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+        
+        .footer-col ul {
+            list-style: none;
+        }
+        
+        .footer-col ul li {
+            margin-bottom: 8px;
+        }
+        
+        .footer-col ul li a {
+            color: white;
+            text-decoration: none;
+        }
+        
+        .social-links {
+            margin-top: 15px;
+        }
+        
+        .social-links a {
+            display: inline-block;
+            color: white;
+            background: rgba(255,255,255,0.1);
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 35px;
+            margin-right: 8px;
+            transition: all 0.3s;
+        }
+        
+        .social-links a:hover {
+            background: var(--primary-color);
+            transform: translateY(-3px);
+        }
+        
+        .copyright {
+            background: rgba(0,0,0,0.2);
+            padding: 15px 0;
+            text-align: center;
+            font-size: 0.8rem;
+        }
+        
+        /* Contact Info in Footer */
+        .contact-info i {
+            margin-right: 8px;
+            width: 20px;
+            text-align: center;
+        }
+        
+        /* Responsive Adjustments */
+        @media (min-width: 576px) {
+            .container {
+                max-width: 540px;
+            }
+            
+            .services-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        
+        @media (min-width: 768px) {
+            .container {
+                max-width: 720px;
+            }
+            
+            .logo h1 {
+                font-size: 1.6rem;
+            }
+            
+            .logo h1 span {
+                display: inline;
+                font-size: 1.6rem;
+            }
+            
+            .mobile-menu {
+                display: none;
+            }
+            
+            nav {
+                display: block;
+            }
+            
+            nav ul {
+                display: flex;
+            }
+            
+            nav ul li {
+                margin: 0 10px;
+            }
+            
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+            
+            .features .container {
+                display: grid;
+                grid-template-columns: repeat(3, 1fr);
+                gap: 15px;
+            }
+            
+            .feature-box {
+                margin-bottom: 0;
+            }
+            
+            .about-preview .container {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: 30px;
+                align-items: center;
+            }
+            
+            footer .container {
+                display: grid;
+                grid-template-columns: repeat(2, 1fr);
+                gap: 30px;
+            }
+        }
+        
+        @media (min-width: 992px) {
+            .container {
+                max-width: 960px;
+            }
+            
+            .services-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+            
+            footer .container {
+                grid-template-columns: repeat(4, 1fr);
+            }
+        }
+        
+        @media (min-width: 1200px) {
+            .container {
+                max-width: 1140px;
+            }
+        }
+        
+        /* Animation Classes */
+        .animate-delay-1 {
+            animation-delay: 0.3s;
+        }
+        
+        .animate-delay-2 {
+            animation-delay: 0.6s;
+        }
+    
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <h1>HEALTH CARE <span>MEDICAL CENTER</span></h1>
+                <p class="opening-hours">Open daily from 10 AM to 10 PM</p>
+            </div>
+            <nav id="mainNav">                <li><a href="contact.html">contact</li>
+</nav>
+            <div class="mobile-menu" id="mobileMenu">
+
+                
+                <i >contact</i>
+            </div>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content animate__animated animate__fadeIn">
+                <h2>Quality Healthcare</h2>
+                <h1>For You & Your Family</h1>
+                <p>Providing comprehensive medical services .</p>
+                <div class="doctor-info">
+                    <p><i class="fas fa-user-md"></i> Dr.  Syed Faisal Waqar Hashmi - MBBS Child Specialist</p>
+                </div>
+                <a href="http://wa.me/+923293045469" class="btn">Book Appointment</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="features">
+        <div class="container">
+            <div class="feature-box animate__animated animate__fadeInUp">
+                <!-- <img src="images/doctor-icon.png" alt="Expert Doctor" class="feature-icon"> -->
+                <img src="https://pngimg.com/d/doctor_PNG16041.png" alt="Expert Doctor" class="feature-icon">
+                <h3>Expert Doctor</h3>
+                <p>Our team includes highly qualified specialists led by Dr. Syed Faisal Waqar Hashmi.</p>
+            </div>
+            <div class="feature-box animate__animated animate__fadeInUp animate-delay-1">
+                <!-- <img src="images/emergency-icon.png" alt="Emergency Care" class="feature-icon"> -->
+                <img src="https://png.pngtree.com/png-vector/20190215/ourmid/pngtree-vector-emergency-icon-png-image_533213.jpg" alt="Emergency Care" class="feature-icon">
+                <h3>Emergency Care</h3>
+                <p>Available during our working hours from 10 AM to 10 PM daily.</p>
+            </div>
+            <div class="feature-box animate__animated animate__fadeInUp animate-delay-2">
+                <!-- <img src="images/pharmacy-icon.png" alt="Medical Pharmacy" class="feature-icon"> -->
+                <img src="https://supremepharma.com.pg/wp-content/uploads/2022/03/Our-Mission-640x400.png" alt="Medical Pharmacy" class="feature-icon">
+                <h3>Arman medical</h3>
+                <p>Full-service pharmacy with all your medication needs.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="about-preview">
+        <div class="container">
+            <div class="">
+                <!-- <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTgcNTYaaWSdu1vd3FZxUL_9vvL3OE5Y2U95w&s" alt="Health Care Medical Center Facility"> -->
+
+
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRhhvMS0v4ozZsvwZYVTYkCa26rTxMQXF8wlQ&s" alt="medical pic ">
+            </div>
+            <div class="about-content animate__animated animate__fadeInRight">
+                <h2>About Our Medical Center</h2>
+                <p>
+"Health Care Medical Center is a trusted healthcare provider in Jamali Goth, committed to delivering exceptional medical services with modern facilities and a patient-centered approach, ensuring the highest standards of care.".</p>
+                <ul>
+                    <li><i class="fas fa-check"></i> Experienced Medical Professionals</li>
+                    <li><i class="fas fa-check"></i> Affordable Treatment Plans</li>
+                    <li><i class="fas fa-check"></i> Comprehensive Diagnostic Services</li>
+                    <li><i class="fas fa-check"></i> Child Specialist Available</li>
+                </ul>
+           
+            </div>
+        </div>
+    </section>
+
+    <section class="services-preview">
+        <div class="container">
+            <div class="section-header">
+                <h2>Our Services</h2>
+                <p>We offer a wide range of medical services to meet your healthcare needs.</p>
+            </div>
+            <div class="services-grid">
+                <div class="service-card animate__animated animate__flipInX">
+                    <i class="fas fa-stethoscope"></i>
+                    <h3>OPD Services</h3>
+                    <p>General outpatient department services for all patients.</p>
+                </div>
+                <div class="service-card animate__animated animate__flipInX animate-delay-1">
+                    <i class="fas fa-vial"></i>
+                    <h3>Laboratory Tests</h3>
+                    <p>Comprehensive diagnostic tests and blood work.</p>
+                </div>
+
+                <div class="service-card animate__animated animate__flipInX">
+                    <i class="fas fa-ultrasound"></i>
+                    <h3>Ultrasound</h3>
+                    <p>Diagnostic ultrasound imaging services.</p>
+                </div>
+                <div class="service-card animate__animated animate__flipInX animate-delay-1">
+                    <i class="fas fa-lungs"></i>
+                    <h3>Nebulization</h3>
+                    <p>Respiratory treatments including nebulizer therapy.</p>
+                </div>
+                <div class="service-card animate__animated animate__flipInX animate-delay-2">
+                    <i class="fas fa-pills"></i>
+                    <h3>Medical Store</h3>
+                    <p>Full-service pharmacy with all necessary medications.</p>
+                </div>
+            </div>
+            <div class="text-center">
+            </div>
+        </div>
+    </section>
+
+    <section class="testimonials">
+        <div class="container">
+            <h2>What Our Patients Say</h2>
+            <div class="testimonial-slider">
+                <div class="testimonial">
+                    <p>"Excellent service and caring staff. Dr. Faisal is very knowledgeable and treated my child with great care."</p>
+                    <div class="patient-info">
+                        <h4>Ahmed Khan</h4>
+                        <div class="rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial">
+                    <p>"The pharmacy has all the medicines we need at reasonable prices. Very convenient."</p>
+                    <div class="patient-info">
+                        <h4>Fatima Ali</h4>
+                        <div class="rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-col">
+                <h3>Health Care Medical Center</h3>
+                <p>Providing quality healthcare services with compassion .</p>
+                <div class="social-links">
+                    <a href="https://www.facebook.com/ArManxs3dnes" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                    <!-- <a href="#" target="_blank"><i class="fab fa-twitter"></i></a> -->
+                    <a href="https://www.instagram.com/armanbaba.2?igsh=aGlibzI1Z2dwNGhm" target="_blank"><i class="fab fa-instagram"></i></a>
+                    <a href="https://wa.me/03293045469" target="_blank"><i class="fab fa-whatsapp"></i></a>
+                </div>
+            </div>
+            <div class="footer-col">
+                <h3>Quick Links</h3>
+                <ul>
+                    
+                    <li><a href="pl.html">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h3>Our Services</h3>
+                <ul>
+                    <li>OPD Services</a></li>
+                    <li>Laboratory Tests</a></li>
+                    <li>Khatna Service</a></li>
+                    <li>Ultrasound</li>
+                    <li> Nebulization</li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h3>Contact Us</h3>
+                <ul class="contact-info">
+                    <li><i class="fas fa-map-marker-alt"></i> Jamali Goth, Near Gareeb Abad<br>Rakhsa Stand, Peer Bazar</li>
+                    <!-- <li><i class="fas fa-phone"><br>0329-3045469 <br>0329-3045469</li> -->
+                    <li> 0329-3045469</li>
+                    <li><i class="fas fa-envelope"></i> armanshah21341@gmaail.com</li>
+                </ul>
+            </div>
+        </div>
+        <div class="copyright">
+            <div class="container">
+                <p>&copy; 2023 Health Care Medical Center. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Menu Toggle
+        document.getElementById('mobileMenu').addEventListener('click', function() {
+            const nav = document.getElementById('mainNav');
+            nav.classList.toggle('active');
+        });
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    targetElement.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                    
+                    // Close mobile menu if open
+                    const nav = document.getElementById('mainNav');
+                    nav.classList.remove('active');
+                }
+            });
+        });
+        
+        // Animation on scroll
+        function animateOnScroll() {
+            const elements = document.querySelectorAll('.animate__animated');
+            
+            elements.forEach(element => {
+                const elementPosition = element.getBoundingClientRect().top;
+                const screenPosition = window.innerHeight / 1.3;
+                
+                if (elementPosition < screenPosition) {
+                    const animationClass = element.classList[1];
+                    element.classList.add(animationClass);
+                }
+            });
+        }
+        
+        window.addEventListener('scroll', animateOnScroll);
+        window.addEventListener('load', animateOnScroll);
+    </script>
+</body>
+</html>
